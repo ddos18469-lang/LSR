@@ -1,0 +1,21 @@
+name: Run Soul 50x
+
+on: [push]
+
+jobs:
+  soul:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Python dependency install करो
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install PyGithub
+          pip install python-telegram-bot --upgrade
+          pip install requests cryptography
+
+      - name: Run SOULCRACK.py
+        run: python3 SOULCRACK.py
