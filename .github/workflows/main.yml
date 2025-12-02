@@ -1,0 +1,26 @@
+name: soul
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install python-telegram-bot==13.15
+
+    - name: Give permission
+      run: chmod +x *
+
+    - name: Run script
+      run: sudo python3 SOULCRACK.py
